@@ -1,0 +1,25 @@
+/* Definições de estilo para o contêiner do nome */
+.name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilo para o nome */
+.name {
+  font-size: 3rem;
+  color: #336699; /* Cor do texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra do texto */
+  animation: rotateName 3s infinite linear; /* Animação de rotação */
+}
+
+/* Animação de rotação */
+@keyframes rotateName {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
