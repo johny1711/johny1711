@@ -13,6 +13,15 @@
   gtag('js', new Date());
   gtag('config', 'G-KVZC4DM44D');
 </script>
+<style>
+  /* Estilo para centralizar o contador de visitantes */
+  #visitante-count {
+    position: absolute;
+    bottom: 20px; /* Ajuste conforme necessário */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>
 </head>
 <body>
 <div class="name-container">
@@ -48,5 +57,26 @@
 <div class="name-container2">
   <h1 class="name">Stay tuned!</h1>
 </div>
+
+<!-- Exibe o contador de visitantes -->
+<div id="visitante-count"></div>
+
+<script>
+  // Função para recuperar e exibir o contador de visitantes
+  function exibirContador() {
+    var visitanteCount = localStorage.getItem('visitanteCount');
+    if (visitanteCount === null) {
+      visitanteCount = 1;
+    } else {
+      visitanteCount = parseInt(visitanteCount) + 1;
+    }
+    localStorage.setItem('visitanteCount', visitanteCount);
+    document.getElementById('visitante-count').textContent = 'Total de visitantes: ' + visitanteCount;
+  }
+
+  // Chama a função ao carregar a página
+  exibirContador();
+</script>
+
 </body>
 </html>
