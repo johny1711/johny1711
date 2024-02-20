@@ -10,8 +10,8 @@
 .name {
   font-size: 2rem;
   color: #446699; /* Cor do texto */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra do texto */
-  animation: rotateName 3s infinite linear; /* Animação de rotação */
+  text-shadow: 20px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra do texto */
+  animation: rotateName 10s infinite linear; /* Animação de rotação */
 }
 
 /* Animação de rotação */
