@@ -15,6 +15,10 @@
 </script>
 <style>
   /* Estilo para centralizar o contador de visitantes */
+  .container {
+    position: relative;
+  }
+
   #visitante-count {
     position: absolute;
     bottom: 20px; /* Ajuste conforme necessário */
@@ -54,12 +58,14 @@
   </p>
 </form>
 
-<div class="name-container2">
-  <h1 class="name">Stay tuned!</h1>
-</div>
+<div class="container">
+  <div class="name-container2">
+    <h1 class="name">Stay tuned!</h1>
+  </div>
 
-<!-- Exibe o contador de visitantes -->
-<div id="visitante-count"></div>
+  <!-- Exibe o contador de visitantes -->
+  <div id="visitante-count"></div>
+</div>
 
 <script>
   // Função para recuperar e exibir o contador de visitantes
