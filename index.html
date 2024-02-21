@@ -13,6 +13,7 @@
   gtag('js', new Date());
   gtag('config', 'G-KVZC4DM44D');
 </script>
+
 <style>
   /* Estilo para centralizar o contador de visitantes */
   .container {
@@ -56,6 +57,11 @@
   <h1 class="name">EM CONSTRUÇÃO!</h1>
 </div>
 
+
+<a href="https://i.stack.imgur.com/wE1Ju.jpg?s=128&g=1">My photo in Stackoverflow</a>
+<br>
+<button><a href="https://i.stack.imgur.com/wE1Ju.jpg?s=128&g=1">My photo in Stackoverflow</a></button>
+<br><br>
 <button>I'm Ready to Code</button>
 <button>Send</button>
 <button>Comment</button>
@@ -95,7 +101,7 @@
   // Função para recuperar e exibir o contador de visitantes
   function exibirContador() {
     var visitanteCount = localStorage.getItem('visitanteCount');
-    if (visitanteCount === null) {
+    if (visitanteCount === null || isNaN(visitanteCount)) {
       visitanteCount = 1;
     } else {
       visitanteCount = parseInt(visitanteCount) + 1;
