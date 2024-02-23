@@ -19,6 +19,29 @@
   gtag('config', 'G-KVZC4DM44D');
 </script>
 
+<script>
+    // Função para obter o endereço IP do visitante
+    function getIPAddress(callback) {
+        // Requisição a um serviço de terceiros que retorna o endereço IP do visitante
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://api.ipify.org?format=json", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                var ip = response.ip;
+                callback(ip);
+            }
+        };
+        xhr.send();
+    }
+
+    // Chamando a função e exibindo o endereço IP na console do navegador
+    getIPAddress(function (ip) {
+        console.log("Endereço IP do visitante: " + ip);
+    });
+</script>
+
+
 <style>
   /* Estilo para centralizar o contador de visitantes */
   .container {
@@ -60,11 +83,43 @@
 
 
 <body>
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" alt="Bandeira do Brasil" class="logo">
 <div class="name-container">
+
   <h1 class="name">EM CONSTRUÇÃO!</h1>
 </div>
 
+<h2>Enviar Imagem</h2>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="imagem" accept="image/*">
+    <button type="submit">Enviar</button>
+</form>
+
+<?php
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagem"])) {
+    // Diretório onde as imagens serão salvas
+    $diretorio = "uploads/";
+
+    // Nome do arquivo
+    $nome_arquivo = basename($_FILES["imagem"]["name"]);
+
+    // Caminho completo do arquivo
+    $caminho_arquivo = $diretorio . $nome_arquivo;
+
+    // Move o arquivo para o diretório de uploads
+    if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho_arquivo)) {
+        // Exibe o link para a imagem
+        echo "Imagem enviada com sucesso! Link: <a href='$caminho_arquivo'>$caminho_arquivo</a>";
+    } else {
+        echo "Erro ao enviar a imagem.";
+    }
+}
+?>
+
+<br><br><br><br>
 
 <a href="https://i.stack.imgur.com/wE1Ju.jpg?s=128&g=1">My photo in Stackoverflow</a>
 <br>
